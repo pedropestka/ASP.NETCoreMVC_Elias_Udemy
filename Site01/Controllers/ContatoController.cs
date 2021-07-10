@@ -12,51 +12,16 @@ namespace Site01.Controllers
 
         public IActionResult ReceberContato([FromForm] Contato contato)
         {
-            string conteudo = string.Format("Nome: {0}, E-mail: {1}, Assunto: {2}, Mensagem: {3}",
+            if (ModelState.IsValid)
+            {
+                string conteudo = string.Format("Nome: {0}, E-mail: {1}, Assunto: {2}, Mensagem: {3}",
                 contato.Nome, contato.Email, contato.Assunto, contato.Mensagem);
-
-            return new ContentResult() { Content = conteudo };
+                return new ContentResult() { Content = conteudo };
+            }
+            else
+            {
+                return View("Index");
+            }    
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-            
-        OBTER DADOS MANUALMENTE
-
-        public IActionResult ReceberContato()
-        {
-           
-            // POST - Request.Form - quanto é enviado pelo corpo da pagina
-            // GET - Request.QueryString - quando é enviado pelo endereço da pagina
-
-            Contato contato = new Contato();
-
-            contato.Nome = Request.Form["nome"];
-            contato.Email = Request.Form["email"];
-            contato.Assunto = Request.Form["assunto"];
-            contato.Mensagem = Request.Form["mensagem"];
-
-            string conteudo = string.Format("Nome: {0}, E-mail: {1}, Assunto: {2}, Mensagem: {3}", 
-                contato.Nome, contato.Email, contato.Assunto, contato.Mensagem);
-
-            return new ContentResult() { Content =  conteudo};
-            
-        }
-        */
     }
 }
