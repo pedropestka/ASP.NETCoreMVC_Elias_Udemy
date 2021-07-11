@@ -24,7 +24,7 @@ namespace Site01.Controllers
 
             if (ModelState.IsValid)
             {
-                if (usuario.Email == "pedro.pestka@hotmail.com" && usuario.Senha == "123456")
+                if (usuario.Email == "pedropestka@gmail.com" && usuario.Senha == "123456")
                 {
                     return RedirectToAction("Index", "Palavra");
                 }

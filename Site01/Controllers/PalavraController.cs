@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Site01.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Site01.Controllers
 {
     public class PalavraController : Controller
     {
-        
         // Listar todas as palavras do banco de dados
         public IActionResult Index()
         {
             return View();
         }
-
 
         //CRUD - Create, Retrieve, Update and Delete (cadastrar, consultar, atualizar e excluir)
         [HttpGet]
@@ -33,23 +27,22 @@ namespace Site01.Controllers
         [HttpGet]
         public IActionResult Atualizar()
         {
-            return View();
+            return View("Cadastrar");
         }
 
         [HttpPost]
         public IActionResult Atualizar([FromForm] Palavra palavra)
         {
-            return View();
+            return View("Cadastrar");
         }
 
-        
         // Palavra/Excluir/Id
         //{Controller}/{Action}/{Id?}
+        // não precisa de uma view - basta  acrescentar o 'to do' para excluir o registro no banco
         [HttpGet]
-        public IActionResult Excluir (int Id)
+        public IActionResult Excluir(int Id)
         {
             return RedirectToAction("Index");
         }
-
     }
 }

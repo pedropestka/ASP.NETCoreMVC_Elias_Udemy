@@ -22,7 +22,9 @@ C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Si
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Site01.Views.pdb
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Site01.csproj.CopyComplete
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Contato\Index.cshtml.g.cs
-C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Site01.csproj.AssemblyReference.cache
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.cshtml.g.cs
+C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Palavra\Index.cshtml.g.cs
+C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Palavra\Cadastrar.cshtml.g.cs
+C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Site01.csproj.AssemblyReference.cache
