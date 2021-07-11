@@ -1,18 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Site01.Models;
 
 namespace Site01.Controllers
 {
-	public class HomeController : Controller
-	{
-		public ActionResult Index()
-		{
-			//return new ContentResult() { Content = "Olá mundo - PEDRO!", ContentType = "text/json" };
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-			return View();
-		}
-	}
+        //so chama o metodo com get
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        //sobrecarga
+        [HttpPost] //so chama o metodo com post
+        public ActionResult Login([FromForm] Usuario usuario)
+        {
+
+            if (ModelState.IsValid)
+            {
+                if (usuario.Email == "pedro.pestka@hotmail.com" && usuario.Senha == "123456")
+                {
+                    return RedirectToAction("Index", "Palavra");
+                }
+                else
+                {
+                    ViewBag.Mensagem = "Os dados informados são inválidos";
+                    return View();
+                }
+            }
+            else
+            {
+                return View();
+            }
+        }
+    }
 }
+
+
+
