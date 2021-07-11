@@ -16,32 +16,51 @@ namespace Site01.Controllers
         // Listar todas as palavras do banco de dados
         public IActionResult Index()
         {
-            ViewBag.Palavras = _db.Palavras.ToList();
-            return View();
+            var palavras = _db.Palavras.ToList();
+            return View(palavras);
         }
 
         //CRUD - Create, Retrieve, Update and Delete (cadastrar, consultar, atualizar e excluir)
         [HttpGet]
         public IActionResult Cadastrar()
         {
-            return View();
+            return View(new Palavra());
         }
 
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Palavra palavra)
         {
+            if (ModelState.IsValid)
+            {
+                _db.Palavras.Add(palavra); // passo a palavra que veio do fromulario
+                _db.SaveChanges();
+
+                return RedirectToAction("Index"); // para ver o registro sendo consultado
+            }
+
             return View();
         }
 
         [HttpGet]
-        public IActionResult Atualizar()
+        public IActionResult Atualizar(int Id)
         {
-            return View("Cadastrar");
+            Palavra palavra = _db.Palavras.Find(Id);
+            
+            return View("Cadastrar", palavra);
         }
 
         [HttpPost]
         public IActionResult Atualizar([FromForm] Palavra palavra)
         {
+            if (ModelState.IsValid)
+            {
+                _db.Palavras.Update(palavra);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            
+            
             return View("Cadastrar");
         }
 
@@ -51,6 +70,9 @@ namespace Site01.Controllers
         [HttpGet]
         public IActionResult Excluir(int Id)
         {
+            _db.Palavras.Remove(_db.Palavras.Find(Id));
+            _db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
     }

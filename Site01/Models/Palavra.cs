@@ -7,6 +7,6 @@ namespace Site01.Models
         public string Nome { get; set; }
         
         //1 - fácil, 2 - médio, 3 - difícil
-        public byte Nivel { get; set; }
+        public byte Nivel { get; set; } //? indica que permite valores nulos
     }
 }
