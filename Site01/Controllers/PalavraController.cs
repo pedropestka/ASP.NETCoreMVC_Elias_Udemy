@@ -21,13 +21,19 @@ namespace Site01.Controllers
         }
 
         //CRUD - Create, Retrieve, Update and Delete (cadastrar, consultar, atualizar e excluir)
-        [HttpGet]
+        //•	GET: Método genérico para qualquer requisição que busca dados do servidor;
+        //•	POST: Método genérico para qualquer requisição que envia dados ao servidor;
+        //•	PUT: Método específico para atualização de dados no servidor;
+        //•	DELETE: Método específico para remoção de dados no servidor
+
+
+        [HttpGet] // Visualizar o formulario
         public IActionResult Cadastrar()
         {
             return View(new Palavra());
         }
 
-        [HttpPost]
+        [HttpPost] // Cadastrar a palavra
         public IActionResult Cadastrar([FromForm] Palavra palavra)
         {
             if (ModelState.IsValid)
@@ -61,7 +67,7 @@ namespace Site01.Controllers
             }
             
             
-            return View("Cadastrar");
+            return View("Cadastrar", palavra);
         }
 
         // Palavra/Excluir/Id
@@ -73,7 +79,7 @@ namespace Site01.Controllers
             _db.Palavras.Remove(_db.Palavras.Find(Id));
             _db.SaveChanges();
             
-            return RedirectToAction("Index");
+            return RedirectToAction("Index"); // retorna para a listagem
         }
     }
 }
