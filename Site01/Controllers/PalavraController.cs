@@ -43,6 +43,10 @@ namespace Site01.Controllers
                 _db.Palavras.Add(palavra); // passo a palavra que veio do fromulario
                 _db.SaveChanges();
 
+                // TEMPDATA
+                TempData["Mensagem"] = "A palavra '" + palavra.Nome + "' foi cadastrada com sucesso!";
+
+
                 return RedirectToAction("Index"); // para ver o registro sendo consultado
             }
 
@@ -65,6 +69,9 @@ namespace Site01.Controllers
                 _db.Palavras.Update(palavra);
                 _db.SaveChanges();
 
+                // TEMPDATA
+                TempData["Mensagem"] = "A palavra '" + palavra.Nome + "' foi atualizada com sucesso!";
+
                 return RedirectToAction("Index");
             }
             
@@ -72,15 +79,16 @@ namespace Site01.Controllers
             return View("Cadastrar", palavra);
         }
 
-        // Palavra/Excluir/Id
-        //{Controller}/{Action}/{Id?}
-        // não precisa de uma view - basta  acrescentar o 'to do' para excluir o registro no banco
         [HttpGet]
         public IActionResult Excluir(int Id)
         {
-            _db.Palavras.Remove(_db.Palavras.Find(Id));
+            Palavra palavra = _db.Palavras.Find(Id);
+            _db.Palavras.Remove(palavra);
             _db.SaveChanges();
-            
+
+            // TEMPDATA
+            TempData["Mensagem"] = "A palavra '" + palavra.Nome + "' foi excluída com sucesso!";
+
             return RedirectToAction("Index"); // retorna para a listagem
         }
     }

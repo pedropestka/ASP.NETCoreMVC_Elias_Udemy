@@ -26,3 +26,4 @@ C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Ra
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.cshtml.g.cs
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Palavra\Index.cshtml.g.cs
 C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Razor\Views\Palavra\Cadastrar.cshtml.g.cs
+C:\Cursos\UdemyASP\1_Elias_BasicoMVC\Projeto01\Site01\obj\Debug\netcoreapp2.1\Site01.csproj.AssemblyReference.cache

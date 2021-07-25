@@ -4,10 +4,16 @@
     //Layout = "~/Views/Shared/_Layout.cshtml"; - opção com endereço completo
     Layout = "_Layout";
 }
-@{ 
+@{
     ViewBag.Title = "Palavra - Listagem";
 }
 
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Mensagem"]
+    </div>
+}
 
 <a href="/palavra/cadastrar" class="btn btn-primary">Cadastrar</a>
 
