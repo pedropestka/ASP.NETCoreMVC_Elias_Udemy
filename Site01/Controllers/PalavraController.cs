@@ -3,6 +3,7 @@ using Site01.Database;
 using Site01.Library.Filters;
 using Site01.Models;
 using System.Linq;
+using X.PagedList;
 
 namespace Site01.Controllers
 {
@@ -16,10 +17,13 @@ namespace Site01.Controllers
         }
 
         // Listar todas as palavras do banco de dados
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
+            var pageNumber = page ?? 1;
+            
             var palavras = _db.Palavras.ToList();
-            return View(palavras);
+            var resultadoPaginado = palavras.ToPagedList(pageNumber, 5);
+            return View(resultadoPaginado);
         }
 
         //CRUD - Create, Retrieve, Update and Delete (cadastrar, consultar, atualizar e excluir)

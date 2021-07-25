@@ -1,4 +1,7 @@
-﻿@model List<Site01.Models.Palavra>
+﻿@model X.PagedList.IPagedList<Site01.Models.Palavra>
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+
 @{
     //Layout = null; - antes
     //Layout = "~/Views/Shared/_Layout.cshtml"; - opção com endereço completo
@@ -15,9 +18,13 @@
     </div>
 }
 
-<a href="/palavra/cadastrar" class="btn btn-primary">Cadastrar</a>
+<link href="/css/PagedList.css" rel="stylesheet" type="text/css"/>
 
-<span><b>Total de registros: </b>@Model.Count</span>
+<p> </p>
+<span><b>Total de registros: </b>@Model.TotalItemCount</span>
+<p> </p>
+<a href="/palavra/cadastrar" class="btn btn-primary">Cadastrar</a>
+<p> </p>
 
 <table class="table">
     <thead class="thead-dark">
@@ -43,3 +50,5 @@
         }
     </tbody>
 </table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new {page}))
