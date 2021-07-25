@@ -9,16 +9,36 @@
 
 <form method="post">
     <input type="hidden" name="id" value="@Model.Id " />
+    <p> </p>
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" name="nome" value="@Model.Nome" class="form-control" id="nome" placeholder="Digite a palavra">
         @Html.ValidationMessage("nome")
     </div>
+    <p> </p>
 
     <div class="form-group">
         <label for="nivel">Nível</label>
-        <input type="text" name="nivel" value="@Model.Nivel" class="form-control" id="nivel" placeholder="Digite o nível: 1- Fácil, 2 - Médio, 3 - Difícil">
+        <select name="nivel" class="form-control">
+            @foreach (var nivel in ViewBag.Nivel)
+            {
+                if (nivel.Id == Model.Nivel)
+                {
+                    <option value="@nivel.Id" selected>@nivel.Nome</option>
+                }
+                else
+                {
+                    <option value="@nivel.Id">@nivel.Nome</option>
+                }
+            }
+        </select>
+        @*<input type="text" name="nivel" value="@Model.Nivel" class="form-control" id="nivel" placeholder="Digite o nível: 1- Fácil, 2 - Médio, 3 - Difícil">*@
         @Html.ValidationMessage("nivel")
     </div>
+    <p> </p>
+    <p> </p>
     <button type="submit" class="btn btn-primary">Enviar</button>
+    <p> </p>
+    <p> </p>
+
 </form>
