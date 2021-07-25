@@ -64,7 +64,7 @@ namespace Site01.Controllers
                 return RedirectToAction("Index"); // para ver o registro sendo consultado
             }
 
-            return View();
+            return View(palavra);
         }
 
         [HttpGet]
