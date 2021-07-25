@@ -23,6 +23,10 @@ namespace Site01
 				options.UseSqlServer("Server=(localdb)\\mssqllocaldb; Database=site01;Integrated Security = False;");
 			});
 
+			// implementando login
+			services.AddDistributedMemoryCache();
+			services.AddSession();
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,6 +36,9 @@ namespace Site01
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+			// login
+			app.UseSession();
 
 			// MÉTODO PARA ACESSAR ITENS ESTÉTICOS
 			app.UseStaticFiles();
